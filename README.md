@@ -7,6 +7,14 @@ Making data sets in the realm of virtual people is difficult.
 This project mainly introduces how to do avatar related 3D reconstruction. Useing smpl models for animation
 
 ## High quality
+It only takes a few minutes to recreate high-quality 3D models
+![teaser](assets/train.png)
+
+
+## Animatable
+We show avatars animated by challenging motions from [AMASS](https://amass.is.tue.mpg.de/) dataset.
+
+
 
 
 1. Audio file UVR voice separation
