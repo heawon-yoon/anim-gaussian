@@ -44,7 +44,20 @@ pip install submodules/simple-knn
 pip install -r requirements.txt
 
 ```
+  If the gaussian module fails to be installed in ubuntu. Take a look at this. This is a common problem when I install
+  1. we could not find ninja.
+        sudo apt-get update
+        
+        sudo apt-get install ninja-build
 
+  2. No such file or directory: ‘:/usr/local/cuda-11.8/bin/nvcc.
+     Execute the command directly on the current command line
+
+        export CUDA_HOME=/usr/local/cuda
+
+        pip install submodules/diff-gaussian-rasterization 
+   
+   window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
 
 # Preparing the datasets and models
 
