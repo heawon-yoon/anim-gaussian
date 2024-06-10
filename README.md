@@ -8,137 +8,127 @@ This project mainly introduces how to do avatar related 3D reconstruction. Usein
 
 ## High quality
 It only takes a few minutes to recreate high-quality 3D models
-![teaser](assets/train.png)
+<div>
+  <img src="assets/img.png" alt="Image 1" style="display: inline; margin-right: 10px;">
+</div>
 
 
 ## Animatable
 We show avatars animated by challenging motions from [AMASS](https://amass.is.tue.mpg.de/) dataset.
+<div>
+  <img src="assets/anim001.gif" alt="Image 1" width="300" height="300" style="display: inline; margin-right: 10px;">
+  <img src="assets/anim002.gif" alt="Image 2" width="300" height="300" style="display: inline;">
+<img src="assets/canon_001.gif" alt="Image 2" width="300" height="300" style="display: inline;">
+</div>
 
-
-
-
-1. Audio file UVR voice separation
-
-2. Vocal noise reduction and enhancement
-
-3. AutoSlice voice intelligent AI slicing by segment
-
-4. ASR automatic vocal recognition and lyrics conversion
-
-5. After generating lyrics, you can manually modify the lyrics
-
-6. MFA lyrics audio automatic forced alignment
-
-7. Data preprocessing
-
-8. Start infer
-
-9. Recombine vocals and accompaniment to generate final audio
 
 ## Installation
 
 ```
-git clone https://github.com/hunkunai/music.git
+git clone --recursive https://github.com/heawon-yoon/anim-gaussian.git
 
-cd music
+cd anim-gaussian
 
+conda create -n anim python=3.8 -y
 
-conda create -n music python=3.8 -y
+conda activate anim
 
-conda activate music
-
-
+#torch and submodules
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
+pip install submodules/diff-gaussian-rasterization
+pip install submodules/simple-knn
 
 pip install -r requirements.txt
 
-conda install -c conda-forge montreal-forced-aligner==2.0.6 --yes
-
-pip install paddlepaddle==2.4.2
-
-pip install setuptools-scm
-
-pip install pytest-runner
-
-pip install paddlespeech==1.4.1
-
-
 ```
 
 
-## Download Models
+# Preparing the datasets and models
 
-1.Download checkpoint 
+## Datasets
+- Download the SMPL neutral body model
+    - Register to [SMPL](https://smpl.is.tue.mpg.de/index.html) website.
+    - Download v1.1.0 and SMPL UV obj file from the [download](https://smpl.is.tue.mpg.de/download.php) page.
+    - Extract the files and rename `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl` to `SMPL_NEUTRAL.pkl`.
+    - Put the files into `./data/smpl/` folder with the following structure:
 
-final path like checkpoint/nsf_hifigan,checkpoint/my_experiment
-```
-  cd checkpoint/
-  wget https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip
-  unzip nsf_hifigan_20221211.zip
-  wget https://github.com/hunkunai/music/releases/download/music/my_experiment.zip
-  unzip my_experiment.zip
+        ```
+        data/smpl/
+        ├── SMPL_NEUTRAL.pkl
+        ```
 
-```
-
-2.Download uvr model 
+- Download  dataset and pretrained models:
+     - google link ([download](https://drive.google.com/file/d/1LLfmUnaWQxvge5y-4X51IbKa-ZqdWLIQ/view?usp=sharing))
+     - baidu link ([download](https://pan.baidu.com/s/14rvfQQaYHWpoved1cpsd9w?pwd=2tqp))
 
 
-final path like assets/uvr5_weights/HP5-主旋律人声vocals+其他instrumentals.pth
+- Download AMASS dataset for novel animation rendering:
+  - AMASS dataset is used for rendering novel poses.
+  - We used SFU mocap(SMPL+H G) and MPI_mosh (SMPL+H G) subsets, please download from [AMASS](https://amass.is.tue.mpg.de/download.php).
+  - Put the downloaded mocap data in to `./data/` folder.
 
-```
-  mkdir assets/uvr5_weights
-  cd assets/uvr5_weights/
-
-  wget https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/uvr5_weights/HP5-%E4%B8%BB%E6%97%8B%E5%BE%8B%E4%BA%BA%E5%A3%B0vocals%2B%E5%85%B6%E4%BB%96instrumentals.pth
-
-```
-
-3.Download mfa model 
-
-final path like assets/uvr5_weights/mfa-opencpop-extension.zip
-not to unzip that!
+After following the above steps, you should obtain a folder structure similar to this:
 
 ```
-
-  cd assets/
-  wget https://huggingface.co/datasets/fox7005/tool/resolve/main/mfa-opencpop-extension.zip
-
+data/
+├── smpl
+│   ├── SMPL_FEMALE.pkl
+│   ├── SMPL_MALE.pkl
+│   ├── SMPL_NEUTRAL.pkl
+│   ├── smpl_uv.obj
+├── humans
+│   ├── blender
+│   ├── mask
+│   ├── cameras.json
+│   ├── point_cloud.ply
+├── MPI_mosh
+│   ├── 00008
+│   ├── 00031
+│   ├── ...
+│   └── 50027
+└── SFU
+    ├── 0005
+    ├── 0007
+    ├── ...
+    └── 0018
 ```
 
 
-## User Guide
+# Evaluation and Animation
 
-demos on [bilibili](https://www.bilibili.com/video/BV1wG41197K4/)   [bilibili](https://www.bilibili.com/video/BV1bN41137UA/?vd_source=5afbd824d0483e6ab60779ed3faa4535)
-
-
-##### If you encounter a "module not found" error during startup or runtime, please reinstall the module according to the version specified in the requirements.txt file.
-
-Step 1:<br/>
-    start gradio ui
 
 ```
-python app.py
-
+python render_around.py -o <<path to the output directory>>
 ```
 
-Step 2:<br/>
-    upload audio file and click button
-    <div>
-      <img alt="" src="https://github.com/hunkunai/music/blob/main/WechatIMG543.jpeg" width="600" height="400" />
-    <div/>
+This command will generate 360 degree rotation video and animation video
 
 
 
-Step 3:<br/>
-    click infer button
-    <div>
-      <img alt="" src="https://github.com/hunkunai/music/blob/main/WechatIMG544.jpeg" width="600" height="400" />
-    <div/>
+# Training
 
-
+```
+python train.py -s data/humans -o output/0001
+#useing tensorboard to check training result
+tensorboard --logdir=./output/0001
+```
+Open this URL in your browser 
+tensorboard_url : http://localhost:6006/
 
 
 
 
+# Custom Dataset
 
+  To generate your own dataset, refer to the blender.py file.
+  Open blender app and paste the above code from the script menu
+
+  1. blender.py will generate Multi-view images and cameras.json file
+  
+  2. generate mask files Please refer to [SAM](https://github.com/facebookresearch/segment-anything.git),
+  sam.py is just simple example code. Please modify the code according to your needs
+
+
+
+# License
+The code is released under the [LICENSE](LICENSE) terms.

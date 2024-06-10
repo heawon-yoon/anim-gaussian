@@ -9,13 +9,13 @@ from arguments import ModelParams, PipelineParams
 def render_and_anim(dataset, pipe):
     gaussians = GaussianModel(dataset.sh_degree)
     scene = Avatar(dataset, gaussians)
-    scene.gaussians.load_ply('humans/point_cloud.ply')
+    scene.gaussians.load_ply('data/humans/point_cloud.ply')
 
     bg_color = [1, 1, 1] if dataset.white_background else [0, 0, 0]
     background = torch.tensor(bg_color, dtype=torch.float32, device="cuda")
 
     #scene.render_canonical(nframes=20, is_train_progress=False, pose_type=None, pipe=pipe, bg=background)
-    anim_path = './humans/anim/SFU/0005/0005_SideSkip001_poses.npz'
+    anim_path = './data/SFU/0005/0005_SideSkip001_poses.npz'
     scene.animate(anim_path, pipe=pipe, bg=background)
 
 if __name__ == "__main__":
