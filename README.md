@@ -4,7 +4,8 @@
 Modeling animatable human avatars from only Few pictures.
 colmap dataset is generally reconstructed in real video scenes.
 Making data sets in the realm of virtual people is difficult.
-This project mainly introduces how to do avatar related 3D reconstruction. Useing smpl models for animation
+This project mainly introduces how to do avatar related 3D reconstruction. 
+Useing smpl models and extended lbs for animation
 
 ## High quality
 It only takes a few minutes to recreate high-quality 3D models
@@ -35,6 +36,8 @@ conda activate anim
 
 #torch and submodules
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+#gaussian
 pip install submodules/diff-gaussian-rasterization
 pip install submodules/simple-knn
 
@@ -129,6 +132,9 @@ tensorboard_url : http://localhost:6006/
   sam.py is just simple example code. Please modify the code according to your needs
 
 
+## Acknowledgements
+
+This project is built on source codes shared by [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting), [ML-HUGS](https://github.com/apple/ml-hugs.git).
 
 # License
 The model is licensed under the [Apache 2.0 license](LICENSE).
