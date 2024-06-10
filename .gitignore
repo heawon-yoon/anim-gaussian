@@ -1,0 +1,23 @@
+# 忽略所有 .pyc 文件
+*.pyc
+
+# 忽略所有 .idea 文件夹
+.idea/
+
+# 忽略所有 .log 日志文件
+*.log
+
+# 忽略所有 .venv 虚拟环境文件夹
+.venv/
+
+# 忽略所有 __pycache__ 文件夹
+__pycache__/
+
+# 忽略所有 .db 数据库文件
+*.db
+
+# 忽略所有 .env 环境配置文件
+.env
+
+# 忽略所有 .gitignore 文件，防止它被递归处理
+!.gitignore
