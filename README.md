@@ -2,7 +2,7 @@
 # Animatable Gaussian Avatar
 
 Modeling animatable human avatars from only Few pictures.
-gaussian is generally reconstructed in real video scenes.
+colmap dataset is generally reconstructed in real video scenes.
 Making data sets in the realm of virtual people is difficult.
 This project mainly introduces how to do avatar related 3D reconstruction. Useing smpl models for animation
 
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 ## Datasets
 - Download the SMPL neutral body model
     - Register to [SMPL](https://smpl.is.tue.mpg.de/index.html) website.
-    - Download v1.1.0 and SMPL UV obj file from the [download](https://smpl.is.tue.mpg.de/download.php) page.
+    - Download v1.1.0 file from the [download](https://smpl.is.tue.mpg.de/download.php) page.
     - Extract the files and rename `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl` to `SMPL_NEUTRAL.pkl`.
     - Put the files into `./data/smpl/` folder with the following structure:
 
@@ -75,7 +75,6 @@ data/
 │   ├── SMPL_FEMALE.pkl
 │   ├── SMPL_MALE.pkl
 │   ├── SMPL_NEUTRAL.pkl
-│   ├── smpl_uv.obj
 ├── humans
 │   ├── blender
 │   ├── mask
@@ -120,6 +119,7 @@ tensorboard_url : http://localhost:6006/
 
 # Custom Dataset
 
+  I used the vroid software to generate the avatar model.
   To generate your own dataset, refer to the blender.py file.
   Open blender app and paste the above code from the script menu
 
@@ -131,4 +131,4 @@ tensorboard_url : http://localhost:6006/
 
 
 # License
-The code is released under the [LICENSE](LICENSE) terms.
+The model is licensed under the [Apache 2.0 license](LICENSE).
