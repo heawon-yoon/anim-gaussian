@@ -98,7 +98,7 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
         iter_end.record()
 
         with torch.no_grad():
-            anim_path = './humans/anim/SFU/0005/0005_SideSkip001_poses.npz'
+            anim_path = './data/SFU/0005/0005_SideSkip001_poses.npz'
             # Progress bar
             ema_loss_for_log = 0.4 * loss.item() + 0.6 * ema_loss_for_log
             if iteration % 10 == 0:

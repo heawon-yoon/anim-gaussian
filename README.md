@@ -58,7 +58,9 @@ pip install git+https://github.com/mattloper/chumpy.git
   2. No such file or directory: ‘:/usr/local/cuda-11.8/bin/nvcc.<br/>
      Execute the command directly on the current command line<br/>
         export CUDA_HOME=/usr/local/cuda<br/>
+        install again
         pip install submodules/diff-gaussian-rasterization 
+        pip install submodules/simple-knn
    
      window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)<br/>
 
@@ -127,7 +129,7 @@ This command will generate 360 degree rotation video and animation video in outp
 # Training
 
 ```
-python train.py -s data/humans -o output/0001
+python train.py -s data/humans -m ./output/0001
 
 #useing tensorboard to check training result
 tensorboard --logdir=./output/0001
