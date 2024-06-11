@@ -127,6 +127,7 @@ This command will generate 360 degree rotation video and animation video in outp
 
 ```
 python train.py -s data/humans -o output/0001
+
 #useing tensorboard to check training result
 tensorboard --logdir=./output/0001
 ```
