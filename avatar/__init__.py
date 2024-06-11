@@ -113,8 +113,8 @@ class Avatar:
                 self.test_cameras[resolution_scale] = cameraList_from_camInfos(scene_info.test_cameras, resolution_scale, args)
 
         # self.smpl_template = subdivide_smpl_model(smoothing=True, n_iter=2).to(self.device)
-        self.smpl_template = smplx.create('human_model_files', model_type='smpl').to(self.device)
-        self.smpl = smplx.create('human_model_files', model_type='smpl').to(self.device)
+        self.smpl_template = SMPL(SMPL_PATH).to(self.device)
+        self.smpl = SMPL(SMPL_PATH).to(self.device)
         edges = trimesh.Trimesh(
             vertices=self.smpl_template.v_template.detach().cpu().numpy(),
             faces=self.smpl_template.faces, process=False
