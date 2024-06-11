@@ -60,8 +60,9 @@ pip install git+https://github.com/mattloper/chumpy.git
         export CUDA_HOME=/usr/local/cuda<br/>
         pip install submodules/diff-gaussian-rasterization 
    
-     window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
-     pytorch3d problem Please refer to this project about  [pytorch3d](https://github.com/facebookresearch/pytorch3d.git)
+     window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)<br/>
+
+  3. pytorch3d problem Please refer to this project about  [pytorch3d](https://github.com/facebookresearch/pytorch3d.git)
 # Preparing the datasets and models
 
 ## Datasets
