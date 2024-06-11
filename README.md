@@ -35,7 +35,7 @@ conda create -n anim python=3.8 -y
 conda activate anim
 
 #torch and submodules
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 #gaussian
 pip install submodules/diff-gaussian-rasterization
