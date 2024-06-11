@@ -44,7 +44,7 @@ pip install submodules/simple-knn
 pip install -r requirements.txt
 
 ```
-  If the gaussian module fails to be installed in ubuntu. Take a look at this. This is a common problem when I install
+  If the gaussian module fails to be installed in ubuntu. Take a look at this. This is a some problem I have met
   1. we could not find ninja.
         sudo apt-get update
         
@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
         pip install submodules/diff-gaussian-rasterization 
    
-   window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
+     window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
 
 # Preparing the datasets and models
 
