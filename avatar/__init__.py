@@ -286,7 +286,7 @@ class Avatar:
         iter_s += f'_{pose_type}' if pose_type is not None else ''
 
 
-        os.makedirs('canon/', exist_ok=True)
+        os.makedirs('/output/canon/', exist_ok=True)
 
         camera_params = get_rotating_camera(
             dist=5.0, img_size=256 if is_train_progress else 512,
@@ -321,7 +321,7 @@ class Avatar:
             torchvision.utils.save_image(image, f'canon/{idx:05d}.png')
 
         video_fname = f'canon/canon_{iter_s}.mp4'
-        create_video(f'canon/', video_fname, fps=10)
+        create_video(f'/output/canon/', video_fname, fps=10)
 
     @torch.no_grad()
     def animate(self, motion_path=None, iter=None, keep_images=False, pipe=None, bg=None):
@@ -329,7 +329,7 @@ class Avatar:
 
         iter_s = 'final' if iter is None else f'{iter:06d}'
 
-        os.makedirs('anim/', exist_ok=True)
+        os.makedirs('/output/anim/', exist_ok=True)
         start_idx,end_idx,skip = 0,400,4
         motions = np.load(motion_path)
         poses = torch.tensor(motions['poses'][start_idx:end_idx:skip, AMASS_SMPLH_TO_SMPL_JOINTS], dtype=torch.float32, device='cuda')
@@ -394,8 +394,8 @@ class Avatar:
 
             torchvision.utils.save_image(image, f'anim/{idx:05d}.png')
 
-        video_fname = f'anim/anim_{iter_s}.mp4'
-        create_video(f'anim/', video_fname, fps=20)
+        video_fname = f'/output/anim/anim_{iter_s}.mp4'
+        create_video(f'/output/anim/', video_fname, fps=20)
 
     def forward(
             self,

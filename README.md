@@ -35,14 +35,19 @@ conda create -n anim python=3.8 -y
 conda activate anim
 
 #torch
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+conda install -y pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
 
 #gaussian
 pip install submodules/diff-gaussian-rasterization
 pip install submodules/simple-knn
 
-pip install -r requirements.txt
+#pytorch3d
+pip install fvcore iopath
+pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu117_pyt1131/download.html
 
+#requirements
+pip install -r requirements.txt
+pip install git+https://github.com/mattloper/chumpy.git
 ```
   If the gaussian module fails to be installed in ubuntu. Take a look at this. This is a some problem I have met
   1. we could not find ninja or g++<br/>
@@ -56,7 +61,7 @@ pip install -r requirements.txt
         pip install submodules/diff-gaussian-rasterization 
    
      window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
-
+     pytorch3d problem Please refer to this project about  [pytorch3d](https://github.com/facebookresearch/pytorch3d.git)
 # Preparing the datasets and models
 
 ## Datasets
