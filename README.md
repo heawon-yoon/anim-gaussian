@@ -119,7 +119,7 @@ data/
 
 
 ```
-python render_around.py -o <<path to the output directory>>
+python render_around.py
 ```
 
 This command will generate 360 degree rotation video and animation video in output folder
