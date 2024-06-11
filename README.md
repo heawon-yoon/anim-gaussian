@@ -34,7 +34,7 @@ conda create -n anim python=3.8 -y
 
 conda activate anim
 
-#torch and submodules
+#torch
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 #gaussian
@@ -45,16 +45,14 @@ pip install -r requirements.txt
 
 ```
   If the gaussian module fails to be installed in ubuntu. Take a look at this. This is a some problem I have met
-  1. we could not find ninja.
-        sudo apt-get update
-        
+  1. we could not find ninja or g++<br/>
+        sudo apt-get update<br/>
+        sudo apt install build-essential<br/>
         sudo apt-get install ninja-build
 
-  2. No such file or directory: ‘:/usr/local/cuda-11.8/bin/nvcc.
-     Execute the command directly on the current command line
-
-        export CUDA_HOME=/usr/local/cuda
-
+  2. No such file or directory: ‘:/usr/local/cuda-11.8/bin/nvcc.<br/>
+     Execute the command directly on the current command line<br/>
+        export CUDA_HOME=/usr/local/cuda<br/>
         pip install submodules/diff-gaussian-rasterization 
    
      window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)
