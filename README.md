@@ -144,7 +144,7 @@ tensorboard_url : http://localhost:6006/
 
   I used the vroid software to generate the avatar model.
   To generate your own dataset, refer to the blender.py file.
-  Open blender app and paste the above code from the script menu
+  Open blender app and paste the above code from the script menu<br/>
   video link : [bilibili](https://www.bilibili.com/video/BV14MgXeyEvn/),[youtube](https://youtu.be/_6nPq05nwOw?si=i-NMwbXrVtkjcCNe),
   1. blender.py will generate Multi-view images and cameras.json file
   
