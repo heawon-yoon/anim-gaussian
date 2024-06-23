@@ -58,8 +58,8 @@ pip install git+https://github.com/mattloper/chumpy.git
   2. No such file or directory: ‘:/usr/local/cuda-11.8/bin/nvcc.<br/>
      Execute the command directly on the current command line<br/>
         export CUDA_HOME=/usr/local/cuda<br/>
-        install again
-        pip install submodules/diff-gaussian-rasterization 
+        install again<br/>
+        pip install submodules/diff-gaussian-rasterization<br/>
         pip install submodules/simple-knn
    
      window OS and other problem Please refer to this project about gaussians [Gaussian-Splatting](https://github.com/graphdeco-inria/gaussian-splatting)<br/>
@@ -145,7 +145,7 @@ tensorboard_url : http://localhost:6006/
   I used the vroid software to generate the avatar model.
   To generate your own dataset, refer to the blender.py file.
   Open blender app and paste the above code from the script menu
-
+  video link : [bilibili](https://www.bilibili.com/video/BV14MgXeyEvn/),[youtube](https://youtu.be/_6nPq05nwOw?si=i-NMwbXrVtkjcCNe),
   1. blender.py will generate Multi-view images and cameras.json file
   
   2. generate mask files Please refer to [SAM](https://github.com/facebookresearch/segment-anything.git),
