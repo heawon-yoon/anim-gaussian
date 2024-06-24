@@ -144,8 +144,8 @@ tensorboard_url : http://localhost:6006/
 
   I used the vroid software to generate the avatar model.
   To generate your own dataset, refer to the blender.py file.
-  Open blender app and paste the above code from the script menu<br/>
-  video link : [bilibili](https://www.bilibili.com/video/BV14MgXeyEvn/),[youtube](https://youtu.be/_6nPq05nwOw?si=i-NMwbXrVtkjcCNe),
+  Open blender app and paste the above code from the script menu.<br/>
+  video link : [bilibili](https://www.bilibili.com/video/BV14MgXeyEvn/),[youtube](https://youtu.be/_6nPq05nwOw?si=i-NMwbXrVtkjcCNe)
   1. blender.py will generate Multi-view images and cameras.json file
   
   2. generate mask files Please refer to [SAM](https://github.com/facebookresearch/segment-anything.git),
